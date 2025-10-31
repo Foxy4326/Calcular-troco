@@ -16,11 +16,10 @@
     75% { background-color: #0080ff; }
     100% { background-color: #ff00ff; }
   }
-  .rgb-button {
-    animation: rgbButton 5s linear infinite alternate;
-  }
 
-  /* Animação RGB para fundo do site */
+  .rgb-button { animation: rgbButton 5s linear infinite alternate; }
+
+  /* Animação RGB para fundo */
   @keyframes rgbBackground {
     0% { background-color: #ff0040; }
     25% { background-color: #ff8000; }
@@ -31,45 +30,45 @@
   .rgb-active { animation: rgbBackground 8s linear infinite alternate; }
 </style>
 </head>
-<body id="body" class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans">
+<body id="body" class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans flex items-center justify-center">
 
-<!-- Botão Config -->
-<button id="btnConfig" class="rgb-button fixed top-4 right-4 text-white text-xl p-3 rounded-full shadow-lg z-50" title="Configurações">⚙️</button>
+<!-- Botão Configurações -->
+<button id="btnConfig" class="rgb-button fixed top-6 right-6 text-white text-xl p-3 rounded-full shadow-lg z-50 hover:scale-110 transition-transform" title="Configurações">⚙️</button>
 
-<!-- Menu Config -->
-<div id="menuConfig" class="hidden fixed top-16 right-4 bg-white rounded-2xl shadow-2xl p-4 w-64 z-50 border border-gray-200">
-  <h2 class="font-bold text-gray-800 mb-3 text-center">Configurações</h2>
+<!-- Menu Configurações -->
+<div id="menuConfig" class="hidden fixed top-20 right-6 bg-white rounded-2xl shadow-2xl p-5 w-72 z-50 border border-gray-200">
+  <h2 class="font-bold text-gray-800 mb-4 text-center text-lg">Configurações</h2>
   <div class="flex items-center justify-between">
-    <span class="font-semibold text-gray-700">Ativar Modo RGB Fundo</span>
+    <span class="font-medium text-gray-700">Modo RGB Fundo</span>
     <label class="relative inline-flex items-center cursor-pointer">
       <input type="checkbox" id="toggleRGB" class="sr-only peer">
-      <div class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-gradient-to-r peer-checked:from-pink-500 peer-checked:to-yellow-500 transition-all"></div>
-      <span class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-all peer-checked:translate-x-5"></span>
+      <div class="w-12 h-6 bg-gray-300 rounded-full peer peer-checked:bg-gradient-to-r peer-checked:from-pink-500 peer-checked:to-yellow-500 transition-all"></div>
+      <span class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-all peer-checked:translate-x-6"></span>
     </label>
   </div>
 </div>
 
-<div class="container mx-auto px-4 py-8 max-w-md">
+<!-- Container principal -->
+<div class="container mx-auto px-4 py-8 max-w-md w-full">
 
   <!-- Tela de Login -->
-  <div id="loginCard" class="bg-white rounded-2xl shadow-xl p-6 mb-6">
-    <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center">Login</h1>
+  <div id="loginCard" class="bg-white rounded-3xl shadow-xl p-8 mb-8">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Login</h1>
     <form id="loginForm" class="space-y-4">
-      <input type="text" placeholder="Usuário" class="w-full border rounded-lg p-3" required>
-      <input type="password" placeholder="Senha" class="w-full border rounded-lg p-3" required>
+      <input type="text" placeholder="Usuário" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+      <input type="password" placeholder="Senha" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
       <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">Entrar</button>
     </form>
     <div class="text-center mt-4">
-      <!-- Botão Entrar como Convidado -->
       <button id="guestBtn" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-colors">Entrar como Convidado</button>
     </div>
   </div>
 
-  <!-- Calculadora -->
-  <div id="appCard" class="hidden bg-white rounded-2xl shadow-xl p-6 mb-6">
+  <!-- Calculadora de Troco -->
+  <div id="appCard" class="hidden bg-white rounded-3xl shadow-xl p-8">
     <div class="text-center mb-6">
-      <div class="bg-white rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center shadow-lg">
-        <span class="text-3xl">💰</span>
+      <div class="bg-white rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center shadow-lg">
+        <span class="text-4xl">💰</span>
       </div>
       <h1 class="text-3xl font-bold text-gray-800 mb-2">Calculadora de Troco</h1>
       <p class="text-gray-600">Calcule o troco de forma rápida e precisa</p>
@@ -80,7 +79,7 @@
         <label for="valorCompra" class="block text-sm font-semibold text-gray-700 mb-1">Valor da Compra</label>
         <div class="relative">
           <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium">R$</span>
-          <input type="number" id="valorCompra" step="0.01" min="0" class="w-full pl-10 pr-4 py-3 border rounded-lg" placeholder="0,00" required>
+          <input type="number" id="valorCompra" step="0.01" min="0" class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="0,00" required>
         </div>
       </div>
 
@@ -88,36 +87,36 @@
         <label for="valorPago" class="block text-sm font-semibold text-gray-700 mb-1">Valor Pago</label>
         <div class="relative">
           <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium">R$</span>
-          <input type="number" id="valorPago" step="0.01" min="0" class="w-full pl-10 pr-4 py-3 border rounded-lg" placeholder="0,00" required>
+          <input type="number" id="valorPago" step="0.01" min="0" class="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="0,00" required>
         </div>
       </div>
 
       <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-lg font-bold hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-200">Calcular Troco</button>
     </form>
 
-    <div id="resultado" class="hidden mt-4 bg-gray-50 p-4 rounded-lg text-center">
-      <div id="valorTroco" class="text-2xl font-bold">R$ 0,00</div>
-      <div class="text-sm text-gray-600 mt-2">
+    <div id="resultado" class="hidden mt-5 bg-gray-50 p-5 rounded-xl text-center shadow-inner">
+      <div id="valorTroco" class="text-3xl font-bold">R$ 0,00</div>
+      <div class="text-sm text-gray-600 mt-2 space-y-1">
         <div>Pago: <span id="valorPagoDisplay">R$ 0,00</span></div>
         <div>Compra: <span id="valorCompraDisplay">R$ 0,00</span></div>
       </div>
     </div>
 
     <!-- Botões de valores rápidos -->
-    <div class="grid grid-cols-3 gap-2 mt-4">
-      <button type="button" onclick="adicionarValor(5)" class="py-2 bg-gray-100 rounded-lg">+R$5</button>
-      <button type="button" onclick="adicionarValor(10)" class="py-2 bg-gray-100 rounded-lg">+R$10</button>
-      <button type="button" onclick="adicionarValor(20)" class="py-2 bg-gray-100 rounded-lg">+R$20</button>
-      <button type="button" onclick="adicionarValor(50)" class="py-2 bg-gray-100 rounded-lg">+R$50</button>
-      <button type="button" onclick="adicionarValor(100)" class="py-2 bg-gray-100 rounded-lg">+R$100</button>
-      <button type="button" onclick="limparCampos()" class="py-2 bg-red-100 text-red-700 rounded-lg">Limpar</button>
+    <div class="grid grid-cols-3 gap-3 mt-5">
+      <button type="button" onclick="adicionarValor(5)" class="py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition">+R$5</button>
+      <button type="button" onclick="adicionarValor(10)" class="py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition">+R$10</button>
+      <button type="button" onclick="adicionarValor(20)" class="py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition">+R$20</button>
+      <button type="button" onclick="adicionarValor(50)" class="py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition">+R$50</button>
+      <button type="button" onclick="adicionarValor(100)" class="py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition">+R$100</button>
+      <button type="button" onclick="limparCampos()" class="py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition">Limpar</button>
     </div>
   </div>
 
 </div>
 
 <script>
-  // Botão Config RGB
+  // Toggle Configurações RGB
   const btnConfig = document.getElementById('btnConfig');
   const menuConfig = document.getElementById('menuConfig');
   const toggleRGB = document.getElementById('toggleRGB');

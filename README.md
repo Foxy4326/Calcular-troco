@@ -46,7 +46,8 @@
       <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">Entrar</button>
     </form>
     <div class="text-center mt-4">
-      <button id="guestBtn" class="text-blue-600 font-semibold hover:underline">Entrar como Convidado</button>
+      <!-- BOTÃO ENTRAR COMO CONVIDADO VISÍVEL -->
+      <button id="guestBtn" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-colors">Entrar como Convidado</button>
     </div>
   </div>
 
@@ -111,14 +112,14 @@
   btnConfig.addEventListener('click', () => menuConfig.classList.toggle('hidden'));
   toggleRGB.addEventListener('change', () => body.classList.toggle('rgb-active', toggleRGB.checked));
 
-  // Login ou Convidado
+  // Entrar como Convidado
   const guestBtn = document.getElementById('guestBtn');
   const loginCard = document.getElementById('loginCard');
   const appCard = document.getElementById('appCard');
 
   guestBtn.addEventListener('click', () => {
-    loginCard.classList.add('hidden');
-    appCard.classList.remove('hidden');
+    loginCard.classList.add('hidden');  // esconde o login
+    appCard.classList.remove('hidden'); // mostra a calculadora
   });
 
   // Calculadora de Troco
@@ -153,5 +154,6 @@
     resultado.classList.add('hidden');
   };
 </script>
+
 </body>
 </html>

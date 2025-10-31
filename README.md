@@ -7,6 +7,20 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { box-sizing: border-box; transition: background 0.8s linear; }
+
+  /* Animação RGB para botão */
+  @keyframes rgbButton {
+    0% { background-color: #ff0040; }
+    25% { background-color: #ff8000; }
+    50% { background-color: #40ff00; }
+    75% { background-color: #0080ff; }
+    100% { background-color: #ff00ff; }
+  }
+  .rgb-button {
+    animation: rgbButton 5s linear infinite alternate;
+  }
+
+  /* Animação RGB para fundo do site */
   @keyframes rgbBackground {
     0% { background-color: #ff0040; }
     25% { background-color: #ff8000; }
@@ -20,13 +34,13 @@
 <body id="body" class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans">
 
 <!-- Botão Config -->
-<button id="btnConfig" class="fixed top-4 right-4 bg-gradient-to-r from-indigo-500 to-blue-500 text-white text-xl p-3 rounded-full shadow-lg z-50" title="Configurações">⚙️</button>
+<button id="btnConfig" class="rgb-button fixed top-4 right-4 text-white text-xl p-3 rounded-full shadow-lg z-50" title="Configurações">⚙️</button>
 
 <!-- Menu Config -->
 <div id="menuConfig" class="hidden fixed top-16 right-4 bg-white rounded-2xl shadow-2xl p-4 w-64 z-50 border border-gray-200">
   <h2 class="font-bold text-gray-800 mb-3 text-center">Configurações</h2>
   <div class="flex items-center justify-between">
-    <span class="font-semibold text-gray-700">Ativar Modo RGB</span>
+    <span class="font-semibold text-gray-700">Ativar Modo RGB Fundo</span>
     <label class="relative inline-flex items-center cursor-pointer">
       <input type="checkbox" id="toggleRGB" class="sr-only peer">
       <div class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-gradient-to-r peer-checked:from-pink-500 peer-checked:to-yellow-500 transition-all"></div>
@@ -46,7 +60,7 @@
       <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">Entrar</button>
     </form>
     <div class="text-center mt-4">
-      <!-- BOTÃO ENTRAR COMO CONVIDADO VISÍVEL -->
+      <!-- Botão Entrar como Convidado -->
       <button id="guestBtn" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-colors">Entrar como Convidado</button>
     </div>
   </div>
@@ -103,7 +117,7 @@
 </div>
 
 <script>
-  // Config RGB
+  // Botão Config RGB
   const btnConfig = document.getElementById('btnConfig');
   const menuConfig = document.getElementById('menuConfig');
   const toggleRGB = document.getElementById('toggleRGB');
@@ -118,8 +132,8 @@
   const appCard = document.getElementById('appCard');
 
   guestBtn.addEventListener('click', () => {
-    loginCard.classList.add('hidden');  // esconde o login
-    appCard.classList.remove('hidden'); // mostra a calculadora
+    loginCard.classList.add('hidden');
+    appCard.classList.remove('hidden');
   });
 
   // Calculadora de Troco
@@ -154,6 +168,5 @@
     resultado.classList.add('hidden');
   };
 </script>
-
 </body>
 </html>
